@@ -77,15 +77,34 @@ public class Controller extends MouseAdapter implements ActionListener {
                     adm.refresh();
                     currentView="1";
                     view.getCardLayout().show(mainPanel, currentView);
+                    adm.setListOutPegawai(model.outlistPegawai());
                 } else if(model.loginPegawai(l.getUsername(), l.getPassword())){
                     peg.refresh();
                     currentView="2";
                     view.getCardLayout().show(mainPanel, currentView);
+                    
                 } else if (!model.loginPegawai(l.getPassword(), l.getPassword())){
                     JOptionPane.showMessageDialog(null, "User tidak ada atau username dan pass salah", "Peringatan", JOptionPane.ERROR_MESSAGE);
                 }   
                 
             }
+        } else if (currentView.equals("1")){
+            if (source.equals(adm.tambahPressed())){
+                if(adm.getNama().equals("")||adm.getUsername().equals("")||adm.getPass().equals("")||adm.getEmail().equals("")||adm.getNohp().equals("")){
+                    JOptionPane.showMessageDialog(null, "Cek Kembali inputan", "Peringatan", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    model.addPegawai(adm.getUsername(),adm.getPass() , adm.getNama(), adm.getEmail(), adm.getNohp());
+                    JOptionPane.showMessageDialog(null, "Pendaftaran Berhasil");
+                    adm.setListOutPegawai(model.outlistPegawai());
+                }
+                    
+            } else if (source.equals(adm.LOpressed())){
+                currentView="0";
+                view.getCardLayout().show(mainPanel, currentView);
+                l.refresh();
+            }
+        } else if (currentView.equals("2")){
+            
         }
     }
     

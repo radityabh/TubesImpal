@@ -61,7 +61,7 @@ public class vAdmin extends javax.swing.JPanel {
         bTolak = new javax.swing.JButton();
         bCek = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        LogOut = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -279,7 +279,7 @@ public class vAdmin extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Laporan", jPanel4);
 
-        jButton1.setText("Log out");
+        LogOut.setText("Log out");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -292,7 +292,7 @@ public class vAdmin extends javax.swing.JPanel {
             .addComponent(jTabbedPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(LogOut)
                 .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
@@ -302,7 +302,7 @@ public class vAdmin extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(LogOut)
                 .addContainerGap(39, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -317,6 +317,7 @@ public class vAdmin extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LogOut;
     private javax.swing.JButton bCek;
     private javax.swing.JTextField bEmail;
     private javax.swing.JButton bKonfirmasi;
@@ -325,7 +326,6 @@ public class vAdmin extends javax.swing.JPanel {
     private javax.swing.JPasswordField bPass;
     private javax.swing.JButton bTolak;
     private javax.swing.JTextField bUsername;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -370,8 +370,14 @@ public class vAdmin extends javax.swing.JPanel {
     public String getNohp(){
         return bNo.getText();
     }
+    
+    public Object tambahPressed(){
+        return tmbah;
+    }
+    
+
     public void setListOutPegawai(String[][] list){
-        String[] judul = {"Jenis","Lokasi Awal","Tujuan","Status","Nama Pengemudi","No HP"};
+        String[] judul = {"ID","Username","Password","Nama","Email","No HP"};
         String[][] isi = new String[list.length][6];
         for (int i = 0; i < list.length; i++){
             isi[i][0] = list[i][0];
@@ -392,7 +398,7 @@ public class vAdmin extends javax.swing.JPanel {
         return (String) pKonfirmasi.getSelectedItem();
     }
     public void setListOutBarang(String[][] list){
-        String[] judul = {"Jenis","Lokasi Awal","Tujuan","Status","Nama Pengemudi","No HP"};
+        String[] judul = {"ID","Username","Password","Nama","Email","No HP"};
         String[][] isi = new String[list.length][6];
         for (int i = 0; i < list.length; i++){
             isi[i][0] = list[i][0];
@@ -408,6 +414,9 @@ public class vAdmin extends javax.swing.JPanel {
     }
     
     /*-----------------------------Tool--------------------------*/
+    public Object LOpressed(){
+        return LogOut;
+    }
      public void refresh() {
         bNama.setText("");
         bPass.setText("");
@@ -421,6 +430,7 @@ public class vAdmin extends javax.swing.JPanel {
         bCek.addActionListener(e);
         bKonfirmasi.addActionListener(e);
         bTolak.addActionListener(e);
+        LogOut.addActionListener(e);
     }
     public void addAdapter(MouseAdapter e) {
         tKonfirmasi.addMouseListener(e);

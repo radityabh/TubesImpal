@@ -54,7 +54,15 @@ public class Aplikasi {
         return false;
     }
     
+    public void addPegawai(String Username, String Password, String Nama, String Email, String noHp){
+        adm.addPegawai(Username, Password, Nama, Email, noHp);
+    }
+    
     public Pegawai getPegawai(String Username, String pass){
         return adm.getPegawai2(Username, pass);
+    }
+    
+    public String[][] outlistPegawai(){
+        return adm.getListOutPegawai();
     }
 }

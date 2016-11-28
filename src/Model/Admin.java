@@ -43,6 +43,19 @@ public class Admin extends User{
                return daftarPegawai.get(i);
        }return null;
     }
+    
+    public String[][] getListOutPegawai(){
+        String out[][] = new String[daftarPegawai.size()][6];
+        for (int i = 0;i < daftarPegawai.size();i++){
+                out[i][0] = daftarPegawai.get(i).getIdUser();
+                out[i][1] = daftarPegawai.get(i).getUsername();
+                out[i][2] = daftarPegawai.get(i).getPassword();
+                out[i][3] = daftarPegawai.get(i).getNama();
+                out[i][4] = daftarPegawai.get(i).getEmail();
+                out[i][5] = daftarPegawai.get(i).getNoHp();
+            }
+        return out;
+    }
 
     public int getI() {
         return i;
