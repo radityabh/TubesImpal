@@ -44,6 +44,13 @@ public class Admin extends User{
        }return null;
     }
     
+    public Pegawai getPegawai3(String ID){
+        for(int i=0;i<daftarPegawai.size();i++){
+           if (daftarPegawai.get(i).getIdUser().equals(ID))
+               return daftarPegawai.get(i);
+       }return null;
+    }
+    
     public String[][] getListOutPegawai(){
         String out[][] = new String[daftarPegawai.size()][6];
         for (int i = 0;i < daftarPegawai.size();i++){
@@ -60,6 +67,10 @@ public class Admin extends User{
     public void konfirmasiBarang(Barang b, String kon){
         b.setKonfirmasi(kon);
     }
+    public void konfirmasiTanah(Tanah t, String kon){
+        t.setKonfirmasi(kon);
+    }
+    
 
     public int getI() {
         return i;

@@ -397,15 +397,46 @@ public class vAdmin extends javax.swing.JPanel {
     public String getKonfirmasi(){
         return (String) pKonfirmasi.getSelectedItem();
     }
+    public Object cekPressed(){
+        return bCek;
+    }
+    public Object konformasiPressed(){
+        return bKonfirmasi; 
+    }
+    public Object tolekPressed(){
+        return bTolak;
+    }
+    public Object tabelKonfirmasiSelected(){
+        return tKonfirmasi;
+    }
+    public int getSelectedKonfirmasi(){
+        return tKonfirmasi.getSelectedRow();
+    }
     public void setListOutBarang(String[][] list){
-        String[] judul = {"ID","Nama","Status","Stok","Konfirmasi"};
-        String[][] isi = new String[list.length][5];
+        String[] judul = {"ID","Nama","Stok","Status","Tanggal","Nama Pegawai"};
+        String[][] isi = new String[list.length][6];
         for (int i = 0; i < list.length; i++){
             isi[i][0] = list[i][0];
             isi[i][1] = list[i][1];
             isi[i][2] = list[i][2];
             isi[i][3] = list[i][3];
             isi[i][4] = list[i][4];
+            isi[i][5] = list[i][5];
+        }
+        DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
+        tKonfirmasi.setModel(tableModel);
+        tKonfirmasi.getColumnModel().getColumn(0).setPreferredWidth(20);
+    }
+    public void setListOutTanah(String[][] list){
+        String[] judul = {"ID","Nama Pemilik","Lokasi","Ukuran","Tanggal","Nama Pegawai"};
+        String[][] isi = new String[list.length][6];
+        for (int i = 0; i < list.length; i++){
+            isi[i][0] = list[i][0];
+            isi[i][1] = list[i][1];
+            isi[i][2] = list[i][2];
+            isi[i][3] = list[i][3];
+            isi[i][4] = list[i][4];
+            isi[i][5] = list[i][5];
         }
         DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
         tKonfirmasi.setModel(tableModel);
