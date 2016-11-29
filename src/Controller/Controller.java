@@ -140,17 +140,21 @@ public class Controller extends MouseAdapter implements ActionListener {
                 if (adm.getKonfirmasi()== "Barang"){
                     model.knfrmBarang(model.getBarang(idSeleksi),"DiTerima");
                     adm.setListOutBarang(model.getListOutKonfirmasiBarang());
+                    JOptionPane.showMessageDialog(null, "Barang Berhasil DiTerima");
                 } else if (adm.getKonfirmasi()== "Tanah"){
                     model.knfrmTanah(model.getTanah(idSeleksi), "DiTerima");
                     adm.setListOutTanah(model.getListOutKonfirmasiTanah());
+                    JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTerima");
                 }
             }else if (source.equals(adm.tolekPressed())){
                 if (adm.getKonfirmasi()== "Barang"){
                     model.knfrmBarang(model.getBarang(idSeleksi),"DiTolak");
                     adm.setListOutBarang(model.getListOutKonfirmasiBarang());
+                    JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTolak");
                 } else if (adm.getKonfirmasi()== "Tanah"){
                     model.knfrmTanah(model.getTanah(idSeleksi), "DiTolak");
                     adm.setListOutTanah(model.getListOutKonfirmasiTanah());
+                    JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTolak");
                 }
             }
         } else if (currentView.equals("2")){
