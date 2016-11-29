@@ -56,6 +56,10 @@ public class Admin extends User{
             }
         return out;
     }
+    
+    public void konfirmasiBarang(Barang b, String kon){
+        b.setKonfirmasi(kon);
+    }
 
     public int getI() {
         return i;

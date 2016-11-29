@@ -57,6 +57,8 @@ public class vPegawai extends javax.swing.JPanel {
         tTambah = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tTanah = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         logout = new javax.swing.JButton();
 
@@ -190,6 +192,11 @@ public class vPegawai extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tTanah);
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setText("M");
+
+        jLabel11.setText("2");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -206,8 +213,13 @@ public class vPegawai extends javax.swing.JPanel {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Lokasi, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ukuran, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(39, 39, 39)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(ukuran, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
                         .addComponent(tTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(182, 182, 182)
@@ -220,11 +232,8 @@ public class vPegawai extends javax.swing.JPanel {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(tTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel6)
                         .addGap(37, 37, 37)
@@ -235,13 +244,23 @@ public class vPegawai extends javax.swing.JPanel {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Lokasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ukuran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))))
-                .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(ukuran, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))
+                                .addGap(29, 29, 29))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(41, 41, 41))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Input Tanah", jPanel3);
@@ -299,6 +318,8 @@ public class vPegawai extends javax.swing.JPanel {
     private javax.swing.JTextField bStok;
     private javax.swing.JButton bTambah;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -334,18 +355,21 @@ public class vPegawai extends javax.swing.JPanel {
     }
     
     public int getStok(){
-        return Integer.parseInt(bStok.getText());
+        return Integer.valueOf(bStok.getText());
+    }
+    
+    public Object tBarangPressed(){
+        return bTambah;
     }
     public void setListOutBarang(String[][] list){
-        String[] judul = {"Jenis","Lokasi Awal","Tujuan","Status","Nama Pengemudi","No HP"};
-        String[][] isi = new String[list.length][6];
+        String[] judul = {"ID","Nama","Status","Stok","Konfirmasi"};
+        String[][] isi = new String[list.length][5];
         for (int i = 0; i < list.length; i++){
             isi[i][0] = list[i][0];
             isi[i][1] = list[i][1];
             isi[i][2] = list[i][2];
             isi[i][3] = list[i][3];
             isi[i][4] = list[i][4];
-            isi[i][5] = list[i][5];
         }
         DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
         tBarang.setModel(tableModel);
@@ -360,24 +384,28 @@ public class vPegawai extends javax.swing.JPanel {
         return Lokasi.getText();
     }
     public int getUkuran(){
-        return Integer.parseInt(ukuran.getText());
+        return Integer.valueOf(ukuran.getText());
+    }
+    public Object tTanahPressed(){
+        return tTambah;
     }
     public void setListOutTanah(String[][] list){
-        String[] judul = {"Jenis","Lokasi Awal","Tujuan","Status","Nama Pengemudi","No HP"};
-        String[][] isi = new String[list.length][6];
+        String[] judul = {"ID","Nama Pemilik","Lokasi","Ukuran","Konfirmasi"};
+        String[][] isi = new String[list.length][4];
         for (int i = 0; i < list.length; i++){
             isi[i][0] = list[i][0];
             isi[i][1] = list[i][1];
             isi[i][2] = list[i][2];
             isi[i][3] = list[i][3];
-            isi[i][4] = list[i][4];
-            isi[i][5] = list[i][5];
         }
         DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
         tTanah.setModel(tableModel);
         tTanah.getColumnModel().getColumn(0).setPreferredWidth(20);
     }
     /*-------------------------Tool------------------------*/
+    public Object logoutpressed(){
+        return logout;
+    }
     public void refresh() {
         nBarang.setText("");
         bStok.setText("");

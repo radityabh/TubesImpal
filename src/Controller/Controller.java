@@ -6,9 +6,12 @@
 package Controller;
 
 import Model.Aplikasi;
+import Model.Pegawai;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import view.PanelContainer;
@@ -30,6 +33,8 @@ public class Controller extends MouseAdapter implements ActionListener {
     private String tujuanSeleksi = "";
     private JPanel mainPanel;
     private boolean posisi;
+    private Pegawai p;
+    private Date d;
     
     private vLogin l;
     private vAdmin adm;
@@ -82,6 +87,9 @@ public class Controller extends MouseAdapter implements ActionListener {
                     peg.refresh();
                     currentView="2";
                     view.getCardLayout().show(mainPanel, currentView);
+                    p = model.getPegawai(l.getUsername(), l.getPassword());
+                    peg.setListOutBarang(model.getListOutBarang());
+                    peg.setListOutTanah(model.getListOutTanah());
                     
                 } else if (!model.loginPegawai(l.getPassword(), l.getPassword())){
                     JOptionPane.showMessageDialog(null, "User tidak ada atau username dan pass salah", "Peringatan", JOptionPane.ERROR_MESSAGE);
@@ -104,7 +112,31 @@ public class Controller extends MouseAdapter implements ActionListener {
                 l.refresh();
             }
         } else if (currentView.equals("2")){
-            
+            if(source.equals(peg.logoutpressed())){
+                currentView="0";
+                view.getCardLayout().show(mainPanel, currentView);
+                l.refresh();
+            } else if (source.equals(peg.tBarangPressed())){
+                if (peg.getNBarang().equals("") || peg.getStok()== 0){
+                    JOptionPane.showMessageDialog(null, "Cek Kembali inputan", "Peringatan", JOptionPane.ERROR_MESSAGE);
+                } else{
+                    d = new Date();
+                    model.addBarang(peg.getNBarang(),peg.getStatus(),d,p.getIdUser(),peg.getStok(),"WAITING");
+                    peg.setListOutBarang(model.getListOutBarang());
+                    peg.refresh();
+                    JOptionPane.showMessageDialog(null, "Barang berhasil ditambahkan");
+                }
+            } else if(source.equals(peg.tTanahPressed())){
+                if(peg.getNPemilik().equals("") || peg.getLokasi().equals(" ")){
+                    JOptionPane.showMessageDialog(null, "Cek Kembali inputan", "Peringatan", JOptionPane.ERROR_MESSAGE);
+                } else{
+                    d = new Date();
+                    model.addTanah(peg.getLokasi(),peg.getNPemilik(),peg.getUkuran(),p.getIdUser(),d,"WAITING");
+                    peg.setListOutTanah(model.getListOutTanah());
+                    peg.refresh();
+                    JOptionPane.showMessageDialog(null, "Tanah berhasil ditambahkan");
+                }
+            }
         }
     }
     

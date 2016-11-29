@@ -18,16 +18,16 @@ public class Barang {
     private Date tanggal;
     private String idPegawai;
     private int stok;
-    private String lokasi;
+    private String konfirmasi;
 
-    public Barang(String idBarang, String namaBarang, String status, Date tanggal, String idPegawai, int stok, String lokasi) {
+    public Barang(String idBarang, String namaBarang, String status, Date tanggal, String idPegawai, int stok, String konfirmasi) {
         this.idBarang = idBarang;
         this.namaBarang = namaBarang;
         this.status = status;
         this.tanggal = tanggal;
         this.idPegawai = idPegawai;
         this.stok = stok;
-        this.lokasi = lokasi;
+        this.konfirmasi = konfirmasi;
     }
 
     public String getIdBarang() {
@@ -78,12 +78,12 @@ public class Barang {
         this.stok = stok;
     }
 
-    public String getLokasi() {
-        return lokasi;
+    public String getKonfirmasi() {
+        return konfirmasi;
     }
 
-    public void setLokasi(String lokasi) {
-        this.lokasi = lokasi;
+    public void setKonfirmasi(String konfirmasi) {
+        this.konfirmasi = konfirmasi;
     }
     
     

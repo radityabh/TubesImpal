@@ -18,14 +18,16 @@ public class Tanah {
     private int Ukuran;
     private String idPegawai;
     private Date tanggal;
+    private String Konfirmasi;
 
-    public Tanah(String idTanah, String lokasi, String namaPemilik, int Ukuran, String idPegawai, Date tanggal) {
+    public Tanah(String idTanah, String lokasi, String namaPemilik, int Ukuran, String idPegawai, Date tanggal, String Konfirmasi) {
         this.idTanah = idTanah;
         this.lokasi = lokasi;
         this.namaPemilik = namaPemilik;
         this.Ukuran = Ukuran;
         this.idPegawai = idPegawai;
         this.tanggal = tanggal;
+        this.Konfirmasi = Konfirmasi;
     }
     
     
@@ -76,6 +78,14 @@ public class Tanah {
 
     public void setTanggal(Date tanggal) {
         this.tanggal = tanggal;
+    }
+
+    public String getKonfirmasi() {
+        return Konfirmasi;
+    }
+
+    public void setKonfirmasi(String Konfirmasi) {
+        this.Konfirmasi = Konfirmasi;
     }
     
     

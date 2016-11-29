@@ -21,7 +21,7 @@ public class Driver {
     public static void main(String[] args) {
         Aplikasi ap = new Aplikasi();
         new Controller(ap);
-       
+        
         //console view = new console(ap);
         //view.mainMenu();
     }
