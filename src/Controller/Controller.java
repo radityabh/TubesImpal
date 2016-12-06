@@ -32,7 +32,7 @@ public class Controller extends MouseAdapter implements ActionListener {
     
     private String currentView;
     private String idSeleksi = "";
-    private String lokasiSeleksi = "";
+    private String tmp = "";
     private String tujuanSeleksi = "";
     private JPanel mainPanel;
     private boolean posisi;
@@ -76,8 +76,10 @@ public class Controller extends MouseAdapter implements ActionListener {
         if(source.equals(adm.tabelKonfirmasiSelected())&&adm.getSelectedKonfirmasi() >= 0){
             if(adm.getKonfirmasi()=="Barang"){
                 idSeleksi = model.getTmpBarang(adm.getSelectedKonfirmasi()).getIdBarang();
+                model.setTmp(model.getTmpBarang(adm.getSelectedKonfirmasi()).getKonfirmasi());
             }else if (adm.getKonfirmasi()=="Tanah"){
                 idSeleksi = model.getTmpTanah(adm.getSelectedKonfirmasi()).getIdTanah();
+                model.setTmp(model.getTmpTanah(adm.getSelectedKonfirmasi()).getKonfirmasi());
             }
                    
         }
@@ -104,6 +106,8 @@ public class Controller extends MouseAdapter implements ActionListener {
                     p = model.getPegawai(l.getUsername(), l.getPassword());
                     peg.setListOutBarang(model.getListOutBarang());
                     peg.setListOutTanah(model.getListOutTanah());
+                    peg.setEmptyTabelSearchTanah();
+                    peg.setListOutMutasiTanah(model.getListOutMutasiTanah());
                     
                 } else if (!model.loginPegawai(l.getPassword(), l.getPassword())){
                     JOptionPane.showMessageDialog(null, "User tidak ada atau username dan pass salah", "Peringatan", JOptionPane.ERROR_MESSAGE);
@@ -137,7 +141,12 @@ public class Controller extends MouseAdapter implements ActionListener {
                     model.knfrmBarang(model.getBarang(idSeleksi),"DiTerima");
                     adm.setListOutBarang(model.getListOutKonfirmasiBarang());
                     JOptionPane.showMessageDialog(null, "Barang Berhasil DiTerima");
-                } else if (adm.getKonfirmasi()== "Tanah"){
+                } else if (adm.getKonfirmasi()== "Tanah" && model.getTmp().equals("Mutasi")){
+                    
+                    model.knfrmTanah(model.getTanah(idSeleksi), "DiTerima1");
+                    adm.setListOutTanah(model.getListOutKonfirmasiTanah());
+                    JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTerima");
+                } else if (adm.getKonfirmasi()== "Tanah" && model.getTmp().equals("Input Baru")){
                     model.knfrmTanah(model.getTanah(idSeleksi), "DiTerima");
                     adm.setListOutTanah(model.getListOutKonfirmasiTanah());
                     JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTerima");
@@ -147,10 +156,14 @@ public class Controller extends MouseAdapter implements ActionListener {
                     model.knfrmBarang(model.getBarang(idSeleksi),"DiTolak");
                     adm.setListOutBarang(model.getListOutKonfirmasiBarang());
                     JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTolak");
-                } else if (adm.getKonfirmasi()== "Tanah"){
+                } else if (adm.getKonfirmasi()== "Tanah" && model.getTmp().equals("input Baru")){
                     model.knfrmTanah(model.getTanah(idSeleksi), "DiTolak");
                     adm.setListOutTanah(model.getListOutKonfirmasiTanah());
                     JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTolak");
+                } else if (adm.getKonfirmasi()== "Tanah" && model.getTmp().equals("Mutasi")){
+                    model.knfrmTanah(model.getTanah(idSeleksi), "DiTolak1");
+                    adm.setListOutTanah(model.getListOutKonfirmasiTanah());
+                    JOptionPane.showMessageDialog(null, "Mutasi Tanah Berhasil DiTolak");
                 }
             }
         } else if (currentView.equals("2")){
@@ -174,9 +187,32 @@ public class Controller extends MouseAdapter implements ActionListener {
                 } else{
                     d = new Date();
                     model.addTanah(peg.getLokasi(),peg.getNPemilik(),peg.getUkuran(),p.getIdUser(),d,"Tunggu Konfirmasi");
+                    model.setTmp("Tunggu Konfirmasi");
                     peg.setListOutTanah(model.getListOutTanah());
                     peg.refresh();
                     JOptionPane.showMessageDialog(null, "Tanah berhasil ditambahkan");
+                }
+            } else if(source.equals(peg.cTanahPressed())){
+                if(peg.sNamaPemilik().equals("")){
+                    JOptionPane.showMessageDialog(null, "Inputan Tidak Boleh Kosong", "Peringatan", JOptionPane.ERROR_MESSAGE);
+                } else if(model.getTanah2(peg.sNamaPemilik())==null){
+                    JOptionPane.showMessageDialog(null, "Data Tanah Tidak diTemukan atau Data Belum Di Konfirmasi Admin", "Peringatan", JOptionPane.ERROR_MESSAGE);                    
+                    peg.refresh();
+                    peg.setEmptyTabelSearchTanah();
+                } else{
+                    T = model.getTanah2(peg.sNamaPemilik());
+                    peg.setListOutSearchTanah(model.getListOutSearchTanah(T));
+                }
+            } else if(source.equals(peg.mTanahPressed())){
+                if(peg.mNamaPemilik().equals("")){
+                    JOptionPane.showMessageDialog(null, "Inputan Data Baru Tidak Boleh Kosong", "Peringatan", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    model.knfrmTanah(T, "Tunggu Konfirmasi1");
+                    model.setTmp("Tunggu Konfirmasi1");
+                    JOptionPane.showMessageDialog(null, "Mutasi Diajukan");
+                    peg.setListOutMutasiTanah(model.getListOutMutasiTanah());
+                    peg.setEmptyTabelSearchTanah();
+                    peg.refresh();
                 }
             }
         }

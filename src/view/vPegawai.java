@@ -63,23 +63,23 @@ public class vPegawai extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        sNamaPemilik = new javax.swing.JTextField();
         sTanah = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tMutasiTanah1 = new javax.swing.JTable();
-        jTextField2 = new javax.swing.JTextField();
+        mNamaPemilik = new javax.swing.JTextField();
         mTanah = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         tMutasiTanah2 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        sNamaBarang = new javax.swing.JTextField();
         sBarang = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         tMutasiBarang1 = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        mStok = new javax.swing.JTextField();
         mBarang = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         tMutasiBarang2 = new javax.swing.JTable();
@@ -113,7 +113,7 @@ public class vPegawai extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addContainerGap(281, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Main", jPanel1);
@@ -195,7 +195,7 @@ public class vPegawai extends javax.swing.JPanel {
                             .addComponent(jLabel5)
                             .addComponent(bStok, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(bTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -318,9 +318,9 @@ public class vPegawai extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tMutasiTanah1);
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        mNamaPemilik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                mNamaPemilikActionPerformed(evt);
             }
         });
 
@@ -344,62 +344,51 @@ public class vPegawai extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(55, 55, 55)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(32, 32, 32)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(sTanah))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(mTanah))))
+                        .addComponent(jLabel13)
+                        .addGap(18, 18, 18)
+                        .addComponent(mNamaPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(mTanah))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addGap(75, 75, 75)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(92, Short.MAX_VALUE)))
+                        .addComponent(jLabel12)
+                        .addGap(46, 46, 46)
+                        .addComponent(sNamaPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sTanah))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
+                    .addComponent(sNamaPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sTanah))
-                .addGap(13, 13, 13)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mNamaPemilik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mTanah))
-                .addContainerGap(129, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                    .addContainerGap(222, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(28, 28, 28)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Mutasi Tanah", jPanel4);
 
         jLabel14.setText("Nama Barang");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        sNamaBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                sNamaBarangActionPerformed(evt);
             }
         });
 
@@ -435,7 +424,7 @@ public class vPegawai extends javax.swing.JPanel {
         ));
         jScrollPane6.setViewportView(tMutasiBarang2);
 
-        jLabel16.setText("status baru");
+        jLabel16.setText("Status Baru");
 
         mStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Baik", "Cukup", "Buruk" }));
 
@@ -444,33 +433,33 @@ public class vPegawai extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sBarang))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
-                            .addComponent(jScrollPane6)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(mStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(mStok, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(mStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(mBarang)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                        .addComponent(mBarang))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(sBarang)
+                                .addGap(157, 157, 157)))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,22 +467,28 @@ public class vPegawai extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sBarang))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(mStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mBarang))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(mStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(mBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(mStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Mutasi Barang", jPanel5);
@@ -539,7 +534,7 @@ public class vPegawai extends javax.swing.JPanel {
                     .addComponent(bTampil))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Lihat Data", jPanel6);
@@ -555,22 +550,22 @@ public class vPegawai extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -578,13 +573,13 @@ public class vPegawai extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void mNamaPemilikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mNamaPemilikActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_mNamaPemilikActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void sNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sNamaBarangActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_sNamaBarangActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -623,19 +618,19 @@ public class vPegawai extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JButton logout;
     private javax.swing.JButton mBarang;
+    private javax.swing.JTextField mNamaPemilik;
     private javax.swing.JComboBox mStatus;
+    private javax.swing.JTextField mStok;
     private javax.swing.JButton mTanah;
     private javax.swing.JTextField nBarang;
     private javax.swing.JTextField nPemilik;
     private javax.swing.JComboBox pStatus;
     private javax.swing.JButton sBarang;
+    private javax.swing.JTextField sNamaBarang;
+    private javax.swing.JTextField sNamaPemilik;
     private javax.swing.JButton sTanah;
     private javax.swing.JComboBox sView;
     private javax.swing.JTable tBarang;
@@ -715,22 +710,33 @@ public class vPegawai extends javax.swing.JPanel {
     public Object mTanahPressed(){
         return mTanah;
     }
+    public String sNamaPemilik(){
+        return sNamaPemilik.getText();
+    }
+    public String mNamaPemilik(){
+        return mNamaPemilik.getText();
+    }
     public void setListOutSearchTanah(String[][] list){
-        String[] judul = {"ID","Nama Pemilik","Lokasi","Ukuran"};
-        String[][] isi = new String[list.length][4];
-        for (int i = 0; i < list.length; i++){
-            isi[i][0] = list[i][0];
-            isi[i][1] = list[i][1];
-            isi[i][2] = list[i][2];
-            isi[i][3] = list[i][3];
-        }
+        String[] judul = {"ID","Nama Pemilik","Lokasi","Ukuran M2"};
+        String[][] isi = new String[1][4];
+            isi[0][0] = list[0][0];
+            isi[0][1] = list[0][1];
+            isi[0][2] = list[0][2];
+            isi[0][3] = list[0][3];
+        
         DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
         tMutasiTanah1.setModel(tableModel);
         tMutasiTanah1.getColumnModel().getColumn(0).setPreferredWidth(20);
     }
+    public void setEmptyTabelSearchTanah(){
+        String[] judul = {"ID","Nama Pemilik","Lokasi","Ukuran M2"};
+        String[][] isi = new String[1][4];
+        DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
+        tMutasiTanah1.setModel(tableModel);
+    }
     
     public void setListOutMutasiTanah(String[][] list){
-        String[] judul = {"ID","Nama Pemilik","Lokasi","Ukuran","Konfirmasi"};
+        String[] judul = {"ID","Nama Pemilik","Lokasi","Ukuran M2","Konfirmasi"};
         String[][] isi = new String[list.length][5];
         for (int i = 0; i < list.length; i++){
             isi[i][0] = list[i][0];
@@ -745,8 +751,88 @@ public class vPegawai extends javax.swing.JPanel {
     }
     
     /*------------------------Mutasi Barang-----------------------*/
+    public Object cBarangPressed(){
+        return sBarang;
+    }
+    public Object mBarangPressed(){
+        return mBarang;
+    }
+    public String sNamaBarang(){
+        return sNamaBarang.getText();
+    }
+    public String getMutasiStatus(){
+        return (String) mStatus.getSelectedItem();
+    }
     
-    
+    public int getMutasiStok(){
+        return Integer.valueOf(mStok.getText());
+    }
+    public void setListOutSearchBarang(String[][] list){
+        String[] judul = {"ID","Nama","Stok","Status"};
+        String[][] isi = new String[list.length][4];
+        for (int i = 0; i < list.length; i++){
+            isi[i][0] = list[i][0];
+            isi[i][1] = list[i][1];
+            isi[i][2] = list[i][2];
+            isi[i][3] = list[i][3];
+        }
+        DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
+        tMutasiBarang1.setModel(tableModel);
+    }
+    public void setEmptyTabelSearchBarang(){
+        String[] judul = {"ID","Nama","Stok","Status"};
+        String[][] isi = new String[1][4];
+        DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
+        tBarang.setModel(tableModel);
+    }
+    public void setListOutMutasiBarang(String[][] list){
+        String[] judul = {"ID","Nama","Stok","Status","Konfirmasi"};
+        String[][] isi = new String[list.length][5];
+        for (int i = 0; i < list.length; i++){
+            isi[i][0] = list[i][0];
+            isi[i][1] = list[i][1];
+            isi[i][2] = list[i][2];
+            isi[i][3] = list[i][3];
+            isi[i][4] = list[i][4];
+        }
+        DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
+        tMutasiBarang2.setModel(tableModel);
+    }
+    /*-------------------------lihat data------------------------*/
+    public String getView(){
+        return (String) sView.getSelectedItem();
+    }
+    public Object TampilPressed(){
+        return bTampil;
+    }
+    public void setListOutLihatBarang(String[][] list){
+        String[] judul = {"ID","Nama","Stok","Status","Tanggal",};
+        String[][] isi = new String[list.length][5];
+        for (int i = 0; i < list.length; i++){
+            isi[i][0] = list[i][0];
+            isi[i][1] = list[i][1];
+            isi[i][2] = list[i][2];
+            isi[i][3] = list[i][3];
+            isi[i][4] = list[i][4];
+        }
+        DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
+        tView.setModel(tableModel);
+        tView.getColumnModel().getColumn(0).setPreferredWidth(20);
+    }
+    public void setListOutLihatTanah(String[][] list){
+        String[] judul = {"ID","Nama Pemilik","Lokasi","Ukuran","Tanggal"};
+        String[][] isi = new String[list.length][5];
+        for (int i = 0; i < list.length; i++){
+            isi[i][0] = list[i][0];
+            isi[i][1] = list[i][1];
+            isi[i][2] = list[i][2];
+            isi[i][3] = list[i][3];
+            isi[i][4] = list[i][4];
+        }
+        DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
+        tView.setModel(tableModel);
+        tView.getColumnModel().getColumn(0).setPreferredWidth(20);
+    }
     /*-------------------------Tool------------------------*/
     public Object logoutpressed(){
         return logout;
@@ -757,12 +843,23 @@ public class vPegawai extends javax.swing.JPanel {
         nPemilik.setText("");
         Lokasi.setText("");
         ukuran.setText("");
+        sNamaBarang.setText("");
+        sNamaPemilik.setText("");
+        mNamaPemilik.setText("");
+        mStok.setText("");
         pStatus.setSelectedIndex(0);
+        mStatus.setSelectedIndex(0);
+        sView.setSelectedIndex(0);
     }
     public void addListener(ActionListener e) {
         tTambah.addActionListener(e);
         bTambah.addActionListener(e);
         logout.addActionListener(e);
+        sTanah.addActionListener(e);
+        sBarang.addActionListener(e);
+        bTampil.addActionListener(e);
+        mTanah.addActionListener(e);
+        mBarang.addActionListener(e);
         
     }
 }
