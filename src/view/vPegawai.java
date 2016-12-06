@@ -71,7 +71,7 @@ public class vPegawai extends javax.swing.JPanel {
         jTextField2 = new javax.swing.JTextField();
         mTanah = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        tMutasiTanah3 = new javax.swing.JTable();
+        tMutasiTanah2 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
@@ -83,6 +83,8 @@ public class vPegawai extends javax.swing.JPanel {
         mBarang = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         tMutasiBarang2 = new javax.swing.JTable();
+        jLabel16 = new javax.swing.JLabel();
+        mStatus = new javax.swing.JComboBox();
         jPanel6 = new javax.swing.JPanel();
         sView = new javax.swing.JComboBox();
         bTampil = new javax.swing.JButton();
@@ -154,7 +156,7 @@ public class vPegawai extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -171,7 +173,7 @@ public class vPegawai extends javax.swing.JPanel {
                                         .addComponent(pStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(bTambah)))))
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,7 +326,7 @@ public class vPegawai extends javax.swing.JPanel {
 
         mTanah.setText("Mutasi");
 
-        tMutasiTanah3.setModel(new javax.swing.table.DefaultTableModel(
+        tMutasiTanah2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -335,7 +337,7 @@ public class vPegawai extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane5.setViewportView(tMutasiTanah3);
+        jScrollPane5.setViewportView(tMutasiTanah2);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -433,6 +435,10 @@ public class vPegawai extends javax.swing.JPanel {
         ));
         jScrollPane6.setViewportView(tMutasiBarang2);
 
+        jLabel16.setText("status baru");
+
+        mStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Baik", "Cukup", "Buruk" }));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -447,17 +453,23 @@ public class vPegawai extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(sBarang))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jLabel15)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(mBarang))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
-                            .addComponent(jScrollPane6))))
+                            .addComponent(jScrollPane6)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mBarang)))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -470,14 +482,18 @@ public class vPegawai extends javax.swing.JPanel {
                     .addComponent(sBarang))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(mStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mBarang))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Mutasi Barang", jPanel5);
@@ -584,6 +600,7 @@ public class vPegawai extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -613,6 +630,7 @@ public class vPegawai extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JButton logout;
     private javax.swing.JButton mBarang;
+    private javax.swing.JComboBox mStatus;
     private javax.swing.JButton mTanah;
     private javax.swing.JTextField nBarang;
     private javax.swing.JTextField nPemilik;
@@ -624,7 +642,7 @@ public class vPegawai extends javax.swing.JPanel {
     private javax.swing.JTable tMutasiBarang1;
     private javax.swing.JTable tMutasiBarang2;
     private javax.swing.JTable tMutasiTanah1;
-    private javax.swing.JTable tMutasiTanah3;
+    private javax.swing.JTable tMutasiTanah2;
     private javax.swing.JButton tTambah;
     private javax.swing.JTable tTanah;
     private javax.swing.JTable tView;
@@ -689,6 +707,46 @@ public class vPegawai extends javax.swing.JPanel {
         tTanah.setModel(tableModel);
         tTanah.getColumnModel().getColumn(0).setPreferredWidth(20);
     }
+    
+    /*------------------------Mutasi Tanah-----------------------*/
+    public Object cTanahPressed(){
+        return sTanah;
+    }
+    public Object mTanahPressed(){
+        return mTanah;
+    }
+    public void setListOutSearchTanah(String[][] list){
+        String[] judul = {"ID","Nama Pemilik","Lokasi","Ukuran"};
+        String[][] isi = new String[list.length][4];
+        for (int i = 0; i < list.length; i++){
+            isi[i][0] = list[i][0];
+            isi[i][1] = list[i][1];
+            isi[i][2] = list[i][2];
+            isi[i][3] = list[i][3];
+        }
+        DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
+        tMutasiTanah1.setModel(tableModel);
+        tMutasiTanah1.getColumnModel().getColumn(0).setPreferredWidth(20);
+    }
+    
+    public void setListOutMutasiTanah(String[][] list){
+        String[] judul = {"ID","Nama Pemilik","Lokasi","Ukuran","Konfirmasi"};
+        String[][] isi = new String[list.length][5];
+        for (int i = 0; i < list.length; i++){
+            isi[i][0] = list[i][0];
+            isi[i][1] = list[i][1];
+            isi[i][2] = list[i][2];
+            isi[i][3] = list[i][3];
+            isi[i][4] = list[i][4];
+        }
+        DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
+        tMutasiTanah2.setModel(tableModel);
+        tMutasiTanah2.getColumnModel().getColumn(0).setPreferredWidth(20);
+    }
+    
+    /*------------------------Mutasi Barang-----------------------*/
+    
+    
     /*-------------------------Tool------------------------*/
     public Object logoutpressed(){
         return logout;

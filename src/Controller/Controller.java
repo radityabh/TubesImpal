@@ -163,7 +163,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Cek Kembali inputan", "Peringatan", JOptionPane.ERROR_MESSAGE);
                 } else{
                     d = new Date();
-                    model.addBarang(peg.getNBarang(),peg.getStatus(),d,p.getIdUser(),peg.getStok(),"Tunggu");
+                    model.addBarang(peg.getNBarang(),peg.getStatus(),d,p.getIdUser(),peg.getStok(),"Tunggu Konfirmasi");
                     peg.setListOutBarang(model.getListOutBarang());
                     peg.refresh();
                     JOptionPane.showMessageDialog(null, "Barang berhasil ditambahkan");
@@ -173,7 +173,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Cek Kembali inputan", "Peringatan", JOptionPane.ERROR_MESSAGE);
                 } else{
                     d = new Date();
-                    model.addTanah(peg.getLokasi(),peg.getNPemilik(),peg.getUkuran(),p.getIdUser(),d,"Tunggu");
+                    model.addTanah(peg.getLokasi(),peg.getNPemilik(),peg.getUkuran(),p.getIdUser(),d,"Tunggu Konfirmasi");
                     peg.setListOutTanah(model.getListOutTanah());
                     peg.refresh();
                     JOptionPane.showMessageDialog(null, "Tanah berhasil ditambahkan");

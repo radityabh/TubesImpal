@@ -28,6 +28,8 @@ public class Aplikasi {
         adm.setPegawai(d.readAllPegawai());
         lBarang = new ArrayList();
         lTanah = new ArrayList();
+        lBarang = d.readAllBarang();
+        lTanah = d.readAllTanah();
     }
     
     
@@ -37,6 +39,7 @@ public class Aplikasi {
         String i = "B-"+(lBarang.size()+1);
         Barang b = new Barang(i, namaBarang, status, tanggal, idPegawai,stok , Konfirmasi);
         this.lBarang.add(b);
+        d.saveBarang(i, namaBarang, status, tanggal, idPegawai, stok, Konfirmasi);
     }
     
     
@@ -52,6 +55,7 @@ public class Aplikasi {
         String s="T-"+(lTanah.size()+1);
         Tanah t = new Tanah(s, lokasi, namaPemilik, Ukuran, idPegawai, Tanggal, Konfirmasi);
         this.lTanah.add(t);
+        d.saveTanah(s, lokasi, namaPemilik, Ukuran, idPegawai, Tanggal, Konfirmasi);
     }
     
     public boolean loginPegawai(String Username, String pass){
@@ -111,7 +115,7 @@ public class Aplikasi {
     public String[][] getListOutKonfirmasiBarang(){
         br = new ArrayList();
         for(int x = 0; x<lBarang.size();x++){
-            if(lBarang.get(x).getKonfirmasi()=="WAITING"){
+            if(lBarang.get(x).getKonfirmasi()=="Tunggu Konfirmasi"){
                 br.add(lBarang.get(x));
             }
         }
@@ -130,7 +134,7 @@ public class Aplikasi {
     public String[][] getListOutKonfirmasiTanah(){
         tmpTanah= new ArrayList();
         for(int x = 0; x<lTanah.size();x++){
-            if(lTanah.get(x).getKonfirmasi()=="WAITING"){
+            if(lTanah.get(x).getKonfirmasi()=="Tunggu Konfirmasi"){
                 tmpTanah.add(lTanah.get(x));
             }
         }
@@ -160,10 +164,12 @@ public class Aplikasi {
     
     public void knfrmBarang(Barang b,String status){
         adm.konfirmasiBarang(b, status);
+        d.konfirmasiBarang(b.getIdBarang(), status);
     }
     
     public void knfrmTanah(Tanah t,String status){
         adm.konfirmasiTanah(t, status);
+        d.konfirmasiTanah(t.getIdTanah(), status);
     }
     
 }
