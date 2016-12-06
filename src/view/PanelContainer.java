@@ -35,13 +35,7 @@ public class PanelContainer extends javax.swing.JFrame {
         return cardLayout;
     }
 
-    public Object getBtnExit() {
-        return btnExit;
-    }
-
-    public void addListener(ActionListener e) {
-        btnExit.addActionListener(e);
-    }
+    
 
     public void viewErrorMsg(String errorMsg) {
         JOptionPane.showMessageDialog(this, errorMsg);
@@ -57,7 +51,6 @@ public class PanelContainer extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,8 +69,6 @@ public class PanelContainer extends javax.swing.JFrame {
             .addGap(0, 483, Short.MAX_VALUE)
         );
 
-        btnExit.setText("Exit");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,19 +77,13 @@ public class PanelContainer extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnExit)
-                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(btnExit)
-                .addContainerGap())
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -106,7 +91,6 @@ public class PanelContainer extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExit;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }

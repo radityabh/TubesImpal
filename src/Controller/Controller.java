@@ -67,7 +67,6 @@ public class Controller extends MouseAdapter implements ActionListener {
         
         view.getCardLayout().show(mainPanel, currentView);
         view.setVisible(true);
-        view.addListener(this);
     }
     
     
@@ -89,9 +88,6 @@ public class Controller extends MouseAdapter implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if (source.equals(view.getBtnExit())){
-            System.exit(0);
-        }
         if (currentView.equals("0")){
             if(source.equals(l.masukButtonPressed())){
                 if(l.getUsername().equals("")||l.getPassword().equals("")){
@@ -167,7 +163,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Cek Kembali inputan", "Peringatan", JOptionPane.ERROR_MESSAGE);
                 } else{
                     d = new Date();
-                    model.addBarang(peg.getNBarang(),peg.getStatus(),d,p.getIdUser(),peg.getStok(),"WAITING");
+                    model.addBarang(peg.getNBarang(),peg.getStatus(),d,p.getIdUser(),peg.getStok(),"Tunggu");
                     peg.setListOutBarang(model.getListOutBarang());
                     peg.refresh();
                     JOptionPane.showMessageDialog(null, "Barang berhasil ditambahkan");
@@ -177,7 +173,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Cek Kembali inputan", "Peringatan", JOptionPane.ERROR_MESSAGE);
                 } else{
                     d = new Date();
-                    model.addTanah(peg.getLokasi(),peg.getNPemilik(),peg.getUkuran(),p.getIdUser(),d,"WAITING");
+                    model.addTanah(peg.getLokasi(),peg.getNPemilik(),peg.getUkuran(),p.getIdUser(),d,"Tunggu");
                     peg.setListOutTanah(model.getListOutTanah());
                     peg.refresh();
                     JOptionPane.showMessageDialog(null, "Tanah berhasil ditambahkan");
