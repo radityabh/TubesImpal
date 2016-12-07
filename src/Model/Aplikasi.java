@@ -254,43 +254,91 @@ public class Aplikasi {
     }
     
     public String[][] getListOutMutasiTanah(){
-        String out[][] = new String[lTanah.size()][5];
-        for (int i = 0;i < lTanah.size();i++){
-            if (!lTanah.get(i).getKonfirmasi().equals("Tunggu Konfirmasi") && !lTanah.get(i).getKonfirmasi().equals("DiTerima") && !lTanah.get(i).getKonfirmasi().equals("DiTolak")){
-                out[i][0] = lTanah.get(i).getIdTanah();
-                out[i][1] = lTanah.get(i).getNamaPemilik();
-                out[i][2] = lTanah.get(i).getLokasi();
-                out[i][3] = Integer.toString(lTanah.get(i).getUkuran());
-                if (lTanah.get(i).getKonfirmasi().equals("Tunggu Konfirmasi1"))
+        String out[][] = new String[9999][5];
+        int i = 0;
+        for (Tanah t : lTanah){
+            if (!t.getKonfirmasi().equals("Tunggu Konfirmasi") && !t.getKonfirmasi().equals("DiTerima") && !t.getKonfirmasi().equals("DiTolak")){
+                out[i][0] = t.getIdTanah();
+                out[i][1] = t.getNamaPemilik();
+                out[i][2] = t.getLokasi();
+                out[i][3] = Integer.toString(t.getUkuran());
+                if (t.getKonfirmasi().equals("Tunggu Konfirmasi1"))
                     out[i][4] = "Tunggu Konfirmasi";
-                else if(lTanah.get(i).getKonfirmasi().equals("DiTolak1"))
+                else if(t.getKonfirmasi().equals("DiTolak1"))
                      out[i][4] = "DiTolak";
-                else if(lTanah.get(i).getKonfirmasi().equals("DiTerima1"))
+                else if(t.getKonfirmasi().equals("DiTerima1"))
                     out[i][4] = "DiTerima";
+            i++;
             }
         }
         return out;
     }
     
     public String[][] getListOutMutasiBarang(){
-        String out[][] = new String[lBarang.size()][5];
-        for (int i = 0;i < lBarang.size();i++){
-            if (!lBarang.get(i).getKonfirmasi().equals("Tunggu Konfirmasi") && !lBarang.get(i).getKonfirmasi().equals("DiTerima") && !lBarang.get(i).getKonfirmasi().equals("DiTolak")){
-                out[i][0] = lBarang.get(i).getIdBarang();
-                out[i][1] = lBarang.get(i).getNamaBarang();
-                out[i][2] = Integer.toString(lBarang.get(i).getStok());
-                out[i][3] = lBarang.get(i).getStatus();
-                if (lBarang.get(i).getKonfirmasi().equals("Tunggu Konfirmasi1"))
+        String out[][] = new String[9999][5];
+        int i = 0;
+        for (Barang b : lBarang){
+            if (!b.getKonfirmasi().equals("Tunggu Konfirmasi") && !b.getKonfirmasi().equals("DiTerima") && !b.getKonfirmasi().equals("DiTolak")){
+                out[i][0] = b.getIdBarang();
+                out[i][1] = b.getNamaBarang();
+                out[i][2] = Integer.toString(b.getStok());
+                out[i][3] = b.getStatus();
+                if (b.getKonfirmasi().equals("Tunggu Konfirmasi1"))
                     out[i][4] = "Tunggu Konfirmasi";
-                else if(lBarang.get(i).getKonfirmasi().equals("DiTolak1"))
+                else if(b.getKonfirmasi().equals("DiTolak1"))
                      out[i][4] = "DiTolak";
-                else if(lBarang.get(i).getKonfirmasi().equals("DiTerima1"))
+                else if(b.getKonfirmasi().equals("DiTerima1"))
                     out[i][4] = "DiTerima";
             }
         }
         return out;
     }
     
+    public String[][] getListOutLaporanBarang(String date){
+        String[][] out = new String[9999][7];
+        int i = 0;
+        for (Barang b : lBarang){
+            if (format.format(b.getTanggal()).substring(3).equals(date)){
+                out[i][0] = b.getIdBarang();
+                out[i][1] = b.getNamaBarang();
+                out[i][2] = Integer.toString(b.getStok());
+                out[i][3] = b.getStatus();
+                out[i][4] = format.format(b.getTanggal());
+                out[i][5] = adm.getPegawai3(b.getIdPegawai()).getNama();
+                if (b.getKonfirmasi().equals("Tunggu Konfirmasi1"))
+                    out[i][6] = "DiTerima";
+                else if(b.getKonfirmasi().equals("DiTolak1"))
+                     out[i][6] = "DiTerima";
+                else if(b.getKonfirmasi().equals("DiTerima1"))
+                     out[i][6] = "DiTerima";
+                else
+                    out[i][6] = b.getKonfirmasi();
+                i++;
+            }
+        } return out;
+    }public String[][] getListOutLaporanTanah(String date){
+        String[][] out = new String[9999][7];
+        int i = 0;
+        for (Tanah t : lTanah){
+            if (format.format(t.getTanggal()).substring(3).equals(date)){
+                out[i][0] = t.getIdTanah();
+                out[i][1] = t.getNamaPemilik();
+                out[i][2] = t.getLokasi();
+                out[i][3] = Integer.toString(t.getUkuran());
+                out[i][4] = format.format(t.getTanggal());
+                out[i][5] = adm.getPegawai3(t.getIdPegawai()).getNama();
+                if (lTanah.get(i).getKonfirmasi().equals("Tunggu Konfirmasi1"))
+                    out[i][6] = "DiTerima";
+                else if(lTanah.get(i).getKonfirmasi().equals("DiTolak1"))
+                     out[i][6] = "DiTerima";
+                else if(lTanah.get(i).getKonfirmasi().equals("DiTerima1"))
+                     out[i][6] = "DiTerima";
+                else
+                    out[i][6] = lTanah.get(i).getKonfirmasi();
+                i++;
+            }
+        } return out;
+    }
     public void knfrmBarang(Barang b,String status){
         adm.konfirmasiBarang(b, status);
         d.konfirmasiBarang(b.getIdBarang(), status);

@@ -145,11 +145,11 @@ public class Controller extends MouseAdapter implements ActionListener {
                     adm.setListOutBarang(model.getListOutKonfirmasiBarang());
                 } else if(adm.getKonfirmasi()== "Tanah"){
                     adm.setListOutTanah(model.getListOutKonfirmasiTanah());
-                }
-            } else if(idSeleksi==""){
-                JOptionPane.showMessageDialog(null, "Pilih data yang mau di konfirmasi", "Peringatan", JOptionPane.ERROR_MESSAGE);
+                } 
             }else if (source.equals(adm.konformasiPressed())){
-                if (adm.getKonfirmasi()== "Barang" && model.getTmp().equals("Input Baru")){
+                if(idSeleksi==""){
+                    JOptionPane.showMessageDialog(null, "Pilih data yang mau di konfirmasi", "Peringatan", JOptionPane.ERROR_MESSAGE);
+                }else if (adm.getKonfirmasi()== "Barang" && model.getTmp().equals("Input Baru")){
                     model.knfrmBarang(model.getBarang(idSeleksi),"DiTerima");
                     adm.setListOutBarang(model.getListOutKonfirmasiBarang());
                     JOptionPane.showMessageDialog(null, "Barang Berhasil DiTerima");
@@ -205,6 +205,13 @@ public class Controller extends MouseAdapter implements ActionListener {
                     model.knfrmTanah(model.getTanah(idSeleksi), "DiTolak1");
                     adm.setListOutTanah(model.getListOutKonfirmasiTanah());
                     JOptionPane.showMessageDialog(null, "Mutasi Tanah Berhasil DiTolak");
+                }
+            }else if(source.equals(adm.tLihatPressed())){
+                String tgl = adm.getBulan() + "/" + adm.getTahun();
+                if(adm.jLaporan().equals("Barang")){
+                    adm.setListOutLaporanBarang(model.getListOutLaporanBarang(tgl),model.getListOutLaporanBarang(tgl).length);
+                } else if (adm.jLaporan().equals("Tanah")){
+                    adm.setListOutLaporanTanah(model.getListOutLaporanTanah(tgl));
                 }
             }
         } else if (currentView.equals("2")){
