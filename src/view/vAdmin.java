@@ -545,8 +545,8 @@ public class vAdmin extends javax.swing.JPanel {
         return tKonfirmasi.getSelectedRow();
     }
     public void setListOutBarang(String[][] list){
-        String[] judul = {"ID","Nama","Stok","Status","Tanggal","Nama Pegawai"};
-        String[][] isi = new String[list.length][6];
+        String[] judul = {"ID","Nama","Stok","Status","Tanggal","Nama Pegawai","Konfirmasi"};
+        String[][] isi = new String[list.length][7];
         for (int i = 0; i < list.length; i++){
             isi[i][0] = list[i][0];
             isi[i][1] = list[i][1];
@@ -554,6 +554,7 @@ public class vAdmin extends javax.swing.JPanel {
             isi[i][3] = list[i][3];
             isi[i][4] = list[i][4];
             isi[i][5] = list[i][5];
+            isi[i][6] = list[i][6];
         }
         DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
         tKonfirmasi.setModel(tableModel);

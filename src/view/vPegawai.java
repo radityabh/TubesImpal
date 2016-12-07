@@ -783,7 +783,7 @@ public class vPegawai extends javax.swing.JPanel {
         String[] judul = {"ID","Nama","Stok","Status"};
         String[][] isi = new String[1][4];
         DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
-        tBarang.setModel(tableModel);
+        tMutasiBarang1.setModel(tableModel);
     }
     public void setListOutMutasiBarang(String[][] list){
         String[] judul = {"ID","Nama","Stok","Status","Konfirmasi"};

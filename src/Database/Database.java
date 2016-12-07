@@ -161,6 +161,14 @@ public class Database {
             System.out.println(ex);
         }
     }
+    public void updateBarang(String id, int stok,String status){
+        String s = "update barang set stok = "+stok+", status = '"+status+"' where idBarang = '"+id+"'";
+        try {
+            query(s);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
     public void konfirmasiTanah(String id,String status){
         String s = "update tanah set konfirmasi = '"+status+"' where idTanah = '"+id+"'";
         try {
@@ -169,4 +177,13 @@ public class Database {
             System.out.println(ex);
         }
     }
+    public void updateTanah(String id,String nama){
+        String s = "update tanah set namaPemilik = '"+nama+"' where idTanah = '"+id+"'";
+        try {
+            query(s);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
 }

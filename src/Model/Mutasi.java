@@ -49,6 +49,23 @@ public class Mutasi {
     public void setNamaBaru(String namaBaru) {
         this.namaBaru = namaBaru;
     }
+
+    public int getStok() {
+        return stok;
+    }
+
+    public void setStok(int stok) {
+        this.stok = stok;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String Status) {
+        this.Status = Status;
+    }
+    
     
     
 }
