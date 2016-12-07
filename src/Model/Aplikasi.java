@@ -24,7 +24,7 @@ public class Aplikasi {
     private Database d= new Database();
     private  Admin adm = new Admin("admin","admin", "radit", "no", "085642286535", "a");;
     DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-    private String tmp;
+    private String tmp="cek";
 
     public Aplikasi() {
         adm.setPegawai(d.readAllPegawai());
@@ -48,6 +48,14 @@ public class Aplikasi {
     public void addMutasi(String namaAwal, String namaAkhir){
         Mutasi m = new Mutasi(namaAwal, namaAkhir);
         mutasi.add(m);
+    }
+    
+    public String getMutasi(String nama){
+        for(int x = 0; x<mutasi.size();x++){
+            if(mutasi.get(x).getNamaAsal()== nama){
+                return mutasi.get(x).getNamaBaru();
+            }
+        } return null;
     }
     
     public void ubahStatusBarang(String namaBarang, String status){
@@ -96,7 +104,7 @@ public class Aplikasi {
     }
     
     public Tanah getTmpTanah(int i){
-        return lTanah.get(i);
+        return tmpTanah.get(i);
     }
     
     public Barang getTmpBarang(int i){
@@ -145,11 +153,15 @@ public class Aplikasi {
             }
         return out;
     }
+
+    public Tanah getlTanah(int i) {
+        return lTanah.get(i);
+    }
     
     public String[][] getListOutKonfirmasiTanah(){
         tmpTanah= new ArrayList();
         for(int x = 0; x<lTanah.size();x++){
-            if(lTanah.get(x).getKonfirmasi().equals("Tunggu Konfirmasi") || lTanah.get(x).getKonfirmasi().equals("Tunggu Konfirmasi1")){
+            if((lTanah.get(x).getKonfirmasi().equals("Tunggu Konfirmasi"))||(lTanah.get(x).getKonfirmasi().equals("Tunggu Konfirmasi1"))){
                 tmpTanah.add(lTanah.get(x));
             }
         }

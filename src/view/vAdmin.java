@@ -573,7 +573,7 @@ public class vAdmin extends javax.swing.JPanel {
         }
         DefaultTableModel tableModel = new DefaultTableModel(isi,judul);
         tKonfirmasi.setModel(tableModel);
-        //tKonfirmasi.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tKonfirmasi.getColumnModel().getColumn(0).setPreferredWidth(20);
     }
     
     /*-----------------------------Tool--------------------------*/

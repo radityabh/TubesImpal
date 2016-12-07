@@ -33,7 +33,7 @@ public class Controller extends MouseAdapter implements ActionListener {
     private String currentView;
     private String idSeleksi = "";
     private String tmp = "";
-    private String tujuanSeleksi = "";
+    private String namaPeg = "";
     private JPanel mainPanel;
     private boolean posisi;
     private Pegawai p;
@@ -77,9 +77,13 @@ public class Controller extends MouseAdapter implements ActionListener {
             if(adm.getKonfirmasi()=="Barang"){
                 idSeleksi = model.getTmpBarang(adm.getSelectedKonfirmasi()).getIdBarang();
                 model.setTmp(model.getTmpBarang(adm.getSelectedKonfirmasi()).getKonfirmasi());
+                System.out.println(idSeleksi);
             }else if (adm.getKonfirmasi()=="Tanah"){
                 idSeleksi = model.getTmpTanah(adm.getSelectedKonfirmasi()).getIdTanah();
+                namaPeg = model.getTmpTanah(adm.getSelectedKonfirmasi()).getNamaPemilik();
                 model.setTmp(model.getTmpTanah(adm.getSelectedKonfirmasi()).getKonfirmasi());
+                //System.out.println(namaPeg);
+                System.out.println(idSeleksi);
             }
                    
         }
@@ -141,16 +145,24 @@ public class Controller extends MouseAdapter implements ActionListener {
                     model.knfrmBarang(model.getBarang(idSeleksi),"DiTerima");
                     adm.setListOutBarang(model.getListOutKonfirmasiBarang());
                     JOptionPane.showMessageDialog(null, "Barang Berhasil DiTerima");
-                } else if (adm.getKonfirmasi()== "Tanah" && model.getTmp().equals("Mutasi")){
-                    
-                    model.knfrmTanah(model.getTanah(idSeleksi), "DiTerima1");
-                    adm.setListOutTanah(model.getListOutKonfirmasiTanah());
-                    JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTerima");
-                } else if (adm.getKonfirmasi()== "Tanah" && model.getTmp().equals("Input Baru")){
+                } else if (adm.getKonfirmasi().equals("Tanah") && model.getTmp().equals("Input Baru")){
                     model.knfrmTanah(model.getTanah(idSeleksi), "DiTerima");
                     adm.setListOutTanah(model.getListOutKonfirmasiTanah());
                     JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTerima");
-                }
+                } else if (adm.getKonfirmasi().equals("Tanah") && model.getTmp().equals("Mutasi")){
+                    int choice = JOptionPane.showOptionDialog(null, 
+                    "Pegawai ingin mengubah Nama Pemilik dari "+namaPeg+" menjadi "+model.getMutasi(namaPeg), 
+                    "Konfirmasi", 
+                    JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE, 
+                    null, null, null);
+                    if (choice == JOptionPane.YES_OPTION){
+                        model.knfrmTanah(model.getTanah(idSeleksi), "DiTerima1");
+                        model.getTanah(idSeleksi).setNamaPemilik(model.getMutasi(namaPeg));
+                        adm.setListOutTanah(model.getListOutKonfirmasiTanah());
+                        JOptionPane.showMessageDialog(null, "Mutasi data Tanah Berhasil DiTerima");
+                    }
+                } 
             }else if (source.equals(adm.tolekPressed())){
                 if (adm.getKonfirmasi()== "Barang"){
                     model.knfrmBarang(model.getBarang(idSeleksi),"DiTolak");
@@ -208,6 +220,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Inputan Data Baru Tidak Boleh Kosong", "Peringatan", JOptionPane.ERROR_MESSAGE);
                 } else {
                     model.knfrmTanah(T, "Tunggu Konfirmasi1");
+                    model.addMutasi(T.getNamaPemilik(), peg.mNamaPemilik());
                     model.setTmp("Tunggu Konfirmasi1");
                     JOptionPane.showMessageDialog(null, "Mutasi Diajukan");
                     peg.setListOutMutasiTanah(model.getListOutMutasiTanah());

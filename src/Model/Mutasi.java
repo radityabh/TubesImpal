@@ -12,6 +12,16 @@ package Model;
 public class Mutasi {
     private String namaAsal;
     private String namaBaru;
+    private int stok;
+    private String Status;
+
+    public Mutasi(String namaAsal, int stok, String Status) {
+        this.namaAsal = namaAsal;
+        this.stok = stok;
+        this.namaBaru= "";
+        this.Status = Status;
+    }
+    
 
     public Mutasi(String namaAsal, String namaBaru) {
         this.namaAsal = namaAsal;
