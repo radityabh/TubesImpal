@@ -339,6 +339,37 @@ public class Aplikasi {
             }
         } return out;
     }
+    
+    public String[][] getListOutLihatBarang(){
+        String[][] out = new String[9999][5];
+        int i = 0;
+        for(Barang b : lBarang){
+            if(b.getKonfirmasi().equals("DiTerima") || b.getKonfirmasi().equals("DiTerima1")){
+                out[i][0] = b.getIdBarang();
+                out[i][1] = b.getNamaBarang();
+                out[i][2] = Integer.toString(b.getStok());
+                out[i][3] = b.getStatus();
+                out[i][4] = format.format(b.getTanggal());
+                i++;
+            }
+        }return out;
+    }
+    
+    public String[][] getListOutLihatTanah(){
+        String[][] out = new String[9999][5];
+        int i = 0;
+        for(Tanah t : lTanah){
+            if(t.getKonfirmasi().equals("DiTerima") || t.getKonfirmasi().equals("DiTerima1")){
+                 out[i][0] = t.getIdTanah();
+                out[i][1] = t.getNamaPemilik();
+                out[i][2] = t.getLokasi();
+                out[i][3] = Integer.toString(t.getUkuran());
+                out[i][4] = format.format(t.getTanggal());
+                i++;
+            }
+        }return out;
+    }
+    
     public void knfrmBarang(Barang b,String status){
         adm.konfirmasiBarang(b, status);
         d.konfirmasiBarang(b.getIdBarang(), status);

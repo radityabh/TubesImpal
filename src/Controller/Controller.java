@@ -213,6 +213,12 @@ public class Controller extends MouseAdapter implements ActionListener {
                 } else if (adm.jLaporan().equals("Tanah")){
                     adm.setListOutLaporanTanah(model.getListOutLaporanTanah(tgl));
                 }
+            } else if (source.equals(adm.TampilPressed())){
+                if(adm.getView().equals("Barang")){
+                    adm.setListOutLihatBarang(model.getListOutLihatBarang());
+                } else if (peg.getView().equals("Tanah")){
+                    adm.setListOutLihatTanah(model.getListOutLihatTanah());
+                }
             }
         } else if (currentView.equals("2")){
             if(source.equals(peg.logoutpressed())){
@@ -285,6 +291,12 @@ public class Controller extends MouseAdapter implements ActionListener {
                     peg.setListOutMutasiBarang(model.getListOutMutasiBarang());
                     peg.setEmptyTabelSearchBarang();
                     peg.refresh();
+                }
+            } else if (source.equals(peg.TampilPressed())){
+                if(peg.getView().equals("Barang")){
+                    peg.setListOutLihatBarang(model.getListOutLihatBarang());
+                } else if (peg.getView().equals("Tanah")){
+                    peg.setListOutLihatTanah(model.getListOutLihatTanah());
                 }
             }
         }
