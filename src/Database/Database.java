@@ -10,6 +10,21 @@ import Model.Aplikasi;
 import Model.Barang;
 import Model.Pegawai;
 import Model.Tanah;
+import com.itextpdf.text.Anchor;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chapter;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Section;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -22,17 +37,30 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  *
  * @author Emp. Elesar II
  */
 public class Database {
+
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     private String dbUser = "root";
     private String dbPass = "";
     private Statement stmt = null;
     private Connection con = null;
     private ResultSet rs = null;
+    private String FILE = "c:/hasil/LaporanBarang.pdf";
+    private String FILE2 = "c:/hasil/LaporanTanah.pdf";
+        private Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
+                        Font.BOLD);
+        private Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+                        Font.NORMAL, BaseColor.RED);
+        private Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16,
+                        Font.BOLD);
+        private Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+                        Font.BOLD);
+
 
     public Database() {
         try {
@@ -185,5 +213,161 @@ public class Database {
             System.out.println(ex);
         }
     }
+    
+    public void cetakBarang(String[][] list){
+        try {
+                        Document document = new Document();
+                        PdfWriter.getInstance(document, new FileOutputStream(FILE));
+                        document.open();
+                        addContentBarang(document,list);
+                        document.close();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
+    }
+    public void addContentBarang(Document document,String[][] list) throws DocumentException {
+
+                // Second parameter is the number of the chapter
+
+                Paragraph subPara = new Paragraph("Laporan Invertaris Barang", catFont);
+
+                createTableBarang(subPara,list);
+
+                document.add(subPara);
+
+
+                // now add all this to the document
+                //document.add(test);
+
+        }
+     
+    public void createTableBarang(Paragraph subCatPart, String[][] list)
+                        throws BadElementException {
+                PdfPTable table = new PdfPTable(7);
+
+                // t.setBorderColor(BaseColor.GRAY);
+                // t.setPadding(4);
+                // t.setSpacing(4);
+                // t.setBorderWidth(1);
+
+                PdfPCell c1 = new PdfPCell(new Phrase("ID"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+
+                c1 = new PdfPCell(new Phrase("Nama"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+
+                c1 = new PdfPCell(new Phrase("Stok"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+                
+                c1 = new PdfPCell(new Phrase("Status"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+
+                c1 = new PdfPCell(new Phrase("Tanggal"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+
+                c1 = new PdfPCell(new Phrase("Nama Pegawai"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+                
+                c1 = new PdfPCell(new Phrase("Status Konfirmasi"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+                
+                table.setHeaderRows(1);
+                 for (int i = 0; i < list.length; i++){
+                    table.addCell(list[i][0]);
+                    table.addCell(list[i][1]);
+                    table.addCell(list[i][2]);
+                    table.addCell(list[i][3]);
+                    table.addCell(list[i][4]);
+                    table.addCell(list[i][5]);
+                    table.addCell(list[i][6]);
+        }
+                subCatPart.add(table);
+
+        }
+    
+    public void cetakTanah(String[][] list){
+        try {
+                        Document document = new Document();
+                        PdfWriter.getInstance(document, new FileOutputStream(FILE2));
+                        document.open();
+                        addContentTanah(document,list);
+                        document.close();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
+    }
+    public void addContentTanah(Document document,String[][] list) throws DocumentException {
+
+                // Second parameter is the number of the chapter
+
+                Paragraph subPara = new Paragraph("Laporan Invertaris Tanah", catFont);
+
+                createTableTanah(subPara,list);
+
+                document.add(subPara);
+
+
+                // now add all this to the document
+                //document.add(test);
+
+        }
+     
+    public void createTableTanah(Paragraph subCatPart, String[][] list)
+                        throws BadElementException {
+                PdfPTable table = new PdfPTable(7);
+
+                // t.setBorderColor(BaseColor.GRAY);
+                // t.setPadding(4);
+                // t.setSpacing(4);
+                // t.setBorderWidth(1);
+
+                PdfPCell c1 = new PdfPCell(new Phrase("ID"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+
+                c1 = new PdfPCell(new Phrase("Nama Pemilik"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+
+                c1 = new PdfPCell(new Phrase("Lokasi"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+                
+                c1 = new PdfPCell(new Phrase("Ukuran"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+
+                c1 = new PdfPCell(new Phrase("Tanggal"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+
+                c1 = new PdfPCell(new Phrase("Nama Pegawai"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+                
+                c1 = new PdfPCell(new Phrase("Status Konfirmasi"));
+                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                table.addCell(c1);
+                
+                table.setHeaderRows(1);
+                 for (int i = 0; i < list.length; i++){
+                    table.addCell(list[i][0]);
+                    table.addCell(list[i][1]);
+                    table.addCell(list[i][2]);
+                    table.addCell(list[i][3]);
+                    table.addCell(list[i][4]);
+                    table.addCell(list[i][5]);
+                    table.addCell(list[i][6]);
+        }
+                subCatPart.add(table);
+
+        }
     
 }

@@ -197,7 +197,7 @@ public class Controller extends MouseAdapter implements ActionListener {
                     model.knfrmBarang(model.getBarang(idSeleksi),"DiTolak");
                     adm.setListOutBarang(model.getListOutKonfirmasiBarang());
                     JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTolak");
-                } else if (adm.getKonfirmasi()== "Tanah" && model.getTmp().equals("input Baru")){
+                } else if (adm.getKonfirmasi()== "Tanah" && model.getTmp().equals("Input Baru")){
                     model.knfrmTanah(model.getTanah(idSeleksi), "DiTolak");
                     adm.setListOutTanah(model.getListOutKonfirmasiTanah());
                     JOptionPane.showMessageDialog(null, "Tanah Berhasil DiTolak");
@@ -216,8 +216,16 @@ public class Controller extends MouseAdapter implements ActionListener {
             } else if (source.equals(adm.TampilPressed())){
                 if(adm.getView().equals("Barang")){
                     adm.setListOutLihatBarang(model.getListOutLihatBarang());
-                } else if (peg.getView().equals("Tanah")){
+                } else if (adm.getView().equals("Tanah")){
                     adm.setListOutLihatTanah(model.getListOutLihatTanah());
+                }
+            } else if (source.equals(adm.bCetakPressed())){
+                JOptionPane.showMessageDialog(null, "Laporan berhasil di cetak");
+                String tgl = adm.getBulan() + "/" + adm.getTahun();
+                if(adm.jLaporan().equals("Barang")){
+                    db.cetakBarang(model.getListOutLaporanBarang(tgl));
+                } else if (adm.jLaporan().equals("Tanah")){
+                    db.cetakTanah(model.getListOutLaporanTanah(tgl));
                 }
             }
         } else if (currentView.equals("2")){
